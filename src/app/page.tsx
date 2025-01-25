@@ -9,6 +9,7 @@ const routePath = process.env.NODE_ENV === "development" ? '/' : '/badge-generat
 export default function Home() {
   const [tool, setTool] = useState("");
   const [badgeUrl, setBadgeUrl] = useState("");
+  const [copied, setCopied] = useState(false);
 
   const popularBadges = [
     {
@@ -140,7 +141,8 @@ export default function Home() {
   // Função para copiar o código para a área de transferência
   const copyToClipboard = (link: string) => {
     navigator.clipboard.writeText(link);
-    alert('Copied!')
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000)
   };
 
   return (
@@ -167,18 +169,17 @@ export default function Home() {
             width={120}
             className={styles.imgBadge}
           />
-          <p>Copy code:
-            <button onClick={() => copyToClipboard(`![${tool}](${badgeUrl})`)} title="copy">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                <path d="M16 2H6C4.9 2 4 2.9 4 4v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 18H6V4h10v16zM8 8h8v2H8z"/>
-              </svg>
-            </button>
-          </p>
-          <code>![{tool}]({badgeUrl})</code>
+          
+          <div className={styles.copy}>
+            <code>![{tool}]({badgeUrl})</code>
+            <button onClick={() => copyToClipboard(`![${tool}](${badgeUrl})`)} title="copy code">
+              {copied ? "Copied" : "Copy"}
+            </button> 
+          </div>
         </div>
       )}
 
-      <p className={styles.badge_message}>
+      <p className={styles.toast}>
         To get the badge correctly, search using the exact formatting. For example, instead of <code>env</code>, search for <code>.env</code>, or instead of <code>nextjs</code>, search for <code>next.js</code>
       </p>
 

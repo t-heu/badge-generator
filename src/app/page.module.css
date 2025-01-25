@@ -8,7 +8,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  margin-top: 2em;
   padding: 0 32px;
   text-align: center;
 }
@@ -46,23 +46,38 @@
   margin-bottom: 1em;
 }
 
-.badgeContent p {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.badgeContent button {
-  background: none;
-  cursor: pointer;
-  border: none;
-}
-
 .badgeContent button svg:hover {
   fill: #777;
 }
 
-.badge_message {
+.copy {
+  background-color: #242526;
+  padding: 1em;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.copy code {
+  width: 95%;
+  color: #85d996;
+}
+
+.copy button {
+  padding: 8px;
+  background: rgba(25, 26, 27, .9);
+  color: #eee;
+  border: none;
+  border-radius: 6px;
+}
+
+.copy button:hover {
+  background: rgba(58, 58, 58, 0.9);
+  border: none;
+}
+
+.toast {
   font-size: 16px;
   color: #333;
   background-color: #eee;
@@ -74,7 +89,7 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.badge_message code {
+.toast code {
   font-weight: bold;
   color: #3178C6;
 }
@@ -95,30 +110,6 @@
   background: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  .main {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
-
-  .badgeContent button svg {
-    fill: #fff;
-  }
-
-  .buttonGenerateBadge {
-    background-color: #444950;
-    border-color: #444950;
-  }
-
-  .badge_message {
-    background-color: #444950;
-    color: #eee;
-  }
-}
-
 .imgBadge {
   object-fit: contain; /* Isso mantém a imagem proporcional sem distorcer */
   width: 100%; /* Garantir que a imagem ocupe todo o espaço disponível */
@@ -134,5 +125,25 @@
 @media screen and (max-width: 400px) {
   .badgesPopular {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .main {
+    --gray-rgb: 255, 255, 255;
+    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
+    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
+    --button-primary-hover: #ccc;
+    --button-secondary-hover: #1a1a1a;
+  }
+
+  .buttonGenerateBadge {
+    background-color: #37393b;
+    border-color: #37393b;
+  }
+
+  .toast {
+    background-color: #37393b;
+    color: #eee;
   }
 }
