@@ -1,0 +1,91 @@
+.page {
+  --gray-rgb: 0, 0, 0;
+  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
+  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
+  --button-primary-hover: #383838;
+  --button-secondary-hover: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 0 32px;
+  text-align: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  .page {
+    --gray-rgb: 255, 255, 255;
+    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
+    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
+    --button-primary-hover: #ccc;
+    --button-secondary-hover: #1a1a1a;
+  }
+}
+
+.page input {
+  padding: 10px;
+  width: 300px;
+  margin: 1em 0;
+}
+
+.buttonGenerateBadge {
+  margin-bottom: 1em;
+  margin-left: 10px;
+  padding: 10px 20px;
+  background-color: #1a1a1a;
+  color: #eee;
+  cursor: pointer;
+  border: solid 1px #1a1a1a;
+}
+
+.buttonGenerateBadge:hover {
+  background-color: #444;
+  border-color: #444;
+}
+
+.badgeContent {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.badgeContent p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badgeContent img {
+  width: 125px;
+  margin-bottom: 15px;
+}
+
+.badgeContent button {
+  background: none;
+  cursor: pointer;
+  border: none;
+}
+
+.badgeContent button svg:hover {
+  fill: #777;
+}
+
+.badge_message {
+  font-size: 16px;
+  color: #333;
+  background-color: #f9f9f9;
+  border-left: 5px solid #3178C6;
+  padding: 15px;
+  margin: 20px 0;
+  font-family: 'Arial', sans-serif;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.badge_message code {
+  font-weight: bold;
+  color: #007BFF;
+}
