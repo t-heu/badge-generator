@@ -29,7 +29,7 @@ export default function Home() {
           return;
         }
 
-        const data2 = await fetch("/dataCustom.json")
+        const data2 = await fetch("/badge-generator/dataCustom.json")
         const dataCustom = await data2.json()
         const mergedArray = [...data, ...dataCustom];
   
