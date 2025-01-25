@@ -43,13 +43,45 @@
     }
   },
   {
-    "title": "React",
+    "title": "React Native",
     "hex": "20232a",
-    "source": "",
+    "logo": "react",
+    "fill": "61DAFB",
     "aliases": {
       "aka": [
         "rn",
         "React Native"
+      ]
+    }
+  },
+  {
+    "title": "C%23",
+    "hex": "20232a",
+    "logo": "c-sharp",
+    "aliases": {
+      "aka": [
+        "c#",
+        "c-sharp",
+        "c sharp"
+      ]
+    }
+  },
+  {
+    "title": "Windows",
+    "hex": "0078D4",
+    "logo": "",
+    "aliases": {
+      "aka": []
+    }
+  },
+  {
+    "title": "VS Code",
+    "hex": "007ACC",
+    "logo": "visualstudiocode",
+    "aliases": {
+      "aka": [
+        "vs",
+        "vscode"
       ]
     }
   }

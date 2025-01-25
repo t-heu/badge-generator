@@ -1,4 +1,4 @@
-.page {
+.main {
   --gray-rgb: 0, 0, 0;
   --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
   --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
@@ -13,7 +13,7 @@
   text-align: center;
 }
 
-.page input {
+.main input {
   padding: 10px;
   width: 300px;
   margin: 1em 0;
@@ -96,7 +96,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .page {
+  .main {
     --gray-rgb: 255, 255, 255;
     --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
     --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
