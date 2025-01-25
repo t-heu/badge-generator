@@ -139,10 +139,11 @@ export default function Home() {
   };
 
   // Função para copiar o código para a área de transferência
-  const copyToClipboard = (link: string) => {
+  const copyToClipboard = (link: string, activeAlert = false) => {
     navigator.clipboard.writeText(link);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000)
+    if (activeAlert) alert('Copied')
   };
 
   return (
@@ -151,13 +152,13 @@ export default function Home() {
 
       <input
         type="text"
-        placeholder="Search tool name..."
+        placeholder="Search tool name... (ex: rust)"
         value={tool}
         onChange={(e) => setTool(e.target.value)}
       />
 
       <button onClick={generateBadge} className={styles.buttonGenerateBadge}>
-        Search Badge
+        Search badge
       </button>
 
       {badgeUrl && (
@@ -184,10 +185,11 @@ export default function Home() {
       </p>
 
       <h2>Popular Badges ⭐</h2>
+      <p>Click on any popular badge to copy.</p>
       <div className={styles.badgesPopular}>
         {
           popularBadges.map((res: any, i) => (
-            <button key={i} onClick={() => copyToClipboard(res.url)}>
+            <button title="Copy" key={i} onClick={() => copyToClipboard(res.url, true)}>
               <Image 
                 src={res.preview} 
                 alt="Badge" 
