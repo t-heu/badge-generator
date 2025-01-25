@@ -21,7 +21,6 @@
 
 .buttonGenerateBadge {
   margin-bottom: 1em;
-  margin-left: 10px;
   padding: 10px 20px;
   background-color: #1a1a1a;
   color: #eee;
@@ -42,15 +41,15 @@
   align-items: center;
 }
 
+.badgeContent .imgBadge {
+  width: 20%;
+  margin-bottom: 1em;
+}
+
 .badgeContent p {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.badgeContent img {
-  width: 125px;
-  margin-bottom: 15px;
 }
 
 .badgeContent button {
@@ -80,6 +79,22 @@
   color: #3178C6;
 }
 
+.badgesPopular {
+  display: grid;
+  margin-top: 1em;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  justify-items: center;
+}
+
+.badgesPopular button {
+  outline: none;
+  margin: 0 3px;
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
 @media (prefers-color-scheme: dark) {
   .page {
     --gray-rgb: 255, 255, 255;
@@ -101,5 +116,23 @@
   .badge_message {
     background-color: #444950;
     color: #eee;
+  }
+}
+
+.imgBadge {
+  object-fit: contain; /* Isso mantém a imagem proporcional sem distorcer */
+  width: 100%; /* Garantir que a imagem ocupe todo o espaço disponível */
+  height: 100%; /* Garantir que a altura da imagem também seja proporcional */
+}
+
+@media screen and (max-width: 580px) {
+  .badgesPopular {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .badgesPopular {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

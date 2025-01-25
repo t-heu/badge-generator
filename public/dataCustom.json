@@ -41,5 +41,16 @@
         "ts"
       ]
     }
+  },
+  {
+    "title": "React",
+    "hex": "20232a",
+    "source": "",
+    "aliases": {
+      "aka": [
+        "rn",
+        "React Native"
+      ]
+    }
   }
 ]
