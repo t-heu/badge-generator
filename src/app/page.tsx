@@ -4,13 +4,15 @@ import Image from "next/image";
 
 import styles from "./page.module.css";
 
+const routePath = process.env.NODE_ENV === "development" ? '/' : '/badge-generator/';
+
 export default function Home() {
   const [tool, setTool] = useState("");
   const [badgeUrl, setBadgeUrl] = useState(""); 
 
   const generateBadge = async () => {
     if (tool) {
-      const formattedTool = tool.trim(); // Removendo espaços extras
+      const formattedTool = tool.trim().toLowerCase(); // Removendo espaços extras e convertendo para minúsculas
   
       try {
         const response = await fetch(
@@ -18,31 +20,41 @@ export default function Home() {
         );
   
         if (!response.ok) {
-          alert("Falha ao carregar os dados dos ícones.")
+          alert("Falha ao carregar os dados dos ícones.");
           return;
         }
   
         const data = await response.json();
-        
+  
         if (!Array.isArray(data)) {
-          alert("Formato de dados inesperado.")
+          alert("Formato de dados inesperado.");
           return;
         }
-
-        const data2 = await fetch("/badge-generator/dataCustom.json")
-        const dataCustom = await data2.json()
+  
+        const data2 = await fetch(`${routePath}dataCustom.json`);
+        const dataCustom = await data2.json();
         const mergedArray = [...data, ...dataCustom];
+        
+        // Função para verificar se o termo está no title ou nos aliases
+        const findIcon = (item: any) => {
+          
+          const titleMatch = item.title.toLowerCase() === formattedTool;
+          const aliasMatch =
+            item.aliases &&
+            item.aliases.aka &&
+            item.aliases.aka.some((alias: any) => alias.toLowerCase() === formattedTool);
+          
+          return titleMatch || aliasMatch;
+        };
   
-        // Procurar pela ferramenta no campo 'title', ignorando maiúsculas/minúsculas
-        const icon = mergedArray.find(
-          (item: any) => item.title.toLowerCase() === formattedTool.toLowerCase()
-        );
-  
+        // Procurar no array usando a função personalizada
+        const icon = mergedArray.find(findIcon);
+        
         // Se encontrou, pega a cor, senão usa preto como fallback
-        const color = icon ? icon.hex : "000000"; 
-  
+        const color = icon ? icon.hex : "000000";
+        const title = icon ? icon.title : formattedTool;
         // Gerando o URL do badge com a cor correta
-        const url = `https://img.shields.io/badge/${formattedTool}-${color}?style=for-the-badge&logo=${formattedTool.replace(/\s+/g, "")}&logoColor=white`;
+        const url = `https://img.shields.io/badge/${title}-${color}?style=for-the-badge&logo=${title.replace(/\s+/g, "")}&logoColor=white`;
   
         setBadgeUrl(url);
       } catch (error) {
@@ -52,7 +64,7 @@ export default function Home() {
         );
       }
     }
-  };
+  };  
   
   // Função para copiar o código para a área de transferência
   const copyToClipboard = () => {
@@ -97,7 +109,7 @@ export default function Home() {
       )}
 
       <p className={styles.badge_message}>
-        To get the badge correctly, search using the exact formatting. For example, instead of <code>env</code>, search for <code>.env</code>, or instead of <code>nextjs</code>, search for <code>next.js</code>. This ensures that the badge generated is accurate.
+        To get the badge correctly, search using the exact formatting. For example, instead of <code>env</code>, search for <code>.env</code>, or instead of <code>nextjs</code>, search for <code>next.js</code>
       </p>
     </div>
   );

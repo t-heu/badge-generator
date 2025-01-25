@@ -18,5 +18,28 @@
         "tt"
       ]
     }
+  },
+  {
+    "title": "JavaScript",
+    "hex": "F7DF1E",
+    "source": "https://github.com/voodootikigod/logo.js/blob/1544bdeed6d618a6cfe4f0650d04ab8d9cfa76d9/js.svg",
+    "license": {
+      "type": "MIT"
+    },
+    "aliases": {
+      "aka": [
+        "js"
+      ]
+    }
+  },
+  {
+    "title": "TypeScript",
+    "hex": "3178C6",
+    "source": "https://www.typescriptlang.org/branding",
+    "aliases": {
+      "aka": [
+        "ts"
+      ]
+    }
   }
 ]
