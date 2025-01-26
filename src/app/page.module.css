@@ -42,8 +42,8 @@
 }
 
 .badgeContent .imgBadge {
-  width: 20%;
   margin-bottom: 1em;
+  max-height: 30px;
 }
 
 .badgeContent button svg:hover {
@@ -57,11 +57,12 @@
   justify-content: center;
   align-items: center;
   display: flex;
+  width: 75%;
 }
 
 .copy code {
-  width: 95%;
   color: #85d996;
+  word-break: break-all;
 }
 
 .copy button {
@@ -114,6 +115,12 @@
   object-fit: contain; /* Isso mantém a imagem proporcional sem distorcer */
   width: 100%; /* Garantir que a imagem ocupe todo o espaço disponível */
   height: 100%; /* Garantir que a altura da imagem também seja proporcional */
+}
+
+@media screen and (max-width: 1500px) {
+  .copy {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 580px) {

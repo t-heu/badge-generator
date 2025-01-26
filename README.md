@@ -45,10 +45,9 @@ This project uses the following APIs to generate custom badges:
 2. [Shields.io](https://shields.io/)  
     - Service to generate custom badges for README.
 
-## 🐛 Problemas e Suporte
+## 🐛 Problems and Support
 
-Caso encontre algum problema, sinta-se à vontade para abrir uma [issue](https://github.com/t-heu/badge-generator/issues).
+If you encounter any problems, feel free to open an [issue](https://github.com/t-heu/badge-generator/issues).
 
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+## 📄 License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
