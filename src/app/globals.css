@@ -3,13 +3,6 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #1b1b1d;
-    --foreground: #ededed;
-  }
-}
-
 [data-theme="dark"]:root {
   --background: #1b1b1d;
   --foreground: #ededed;
@@ -18,6 +11,7 @@
 html,
 body {
   max-width: 100vw;
+  height: 100vh;
   overflow-x: hidden;
 }
 
@@ -38,12 +32,6 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }
 
 html[data-theme="dark"] {

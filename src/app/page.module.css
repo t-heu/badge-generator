@@ -8,7 +8,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 2em;
+  margin: 2em 0;
   padding: 0 32px;
   text-align: center;
 }
@@ -119,11 +119,11 @@
   position: absolute;
   left: 10px;
   top: 90px;
-  padding: 10px 20px;
+  padding: 10px 12px;
   border: none;
   border-radius: 4px;
   background: linear-gradient(135deg, #eee, #d6d6d6);
-  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1), -3px -3px 8px rgba(255, 255, 255, 0.7);
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1), -3px -3px 8px rgba(255, 255, 255, 0.5);
   transition: all 0.3s ease-in-out;
   color: #333;
   font-size: 16px;
@@ -136,20 +136,20 @@
 
 .theme_toggle_btn:hover {
   background: linear-gradient(135deg, #e0e0e0, #c4c4c4);
-  box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.15), -5px -5px 12px rgba(255, 255, 255, 0.9);
+  box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.15), -5px -5px 12px rgba(255, 255, 255, 0.7);
 }
 
 .theme_toggle_btn:active {
   transform: scale(0.95);
 }
 
-.dark-mode .theme_toggle_btn {
+[data-theme="dark"] .theme_toggle_btn {
   background: linear-gradient(135deg, #333, #555);
   color: #fff;
   box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5), -3px -3px 8px rgba(255, 255, 255, 0.1);
 }
 
-.dark-mode .theme_toggle_btn:hover {
+[data-theme="dark"] .theme_toggle_btn:hover {
   background: linear-gradient(135deg, #222, #444);
 }
 
@@ -168,36 +168,6 @@
 @media screen and (max-width: 400px) {
   .badgesPopular {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .main {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
-
-  .buttonGenerateBadge {
-    background-color: #37393b;
-    border-color: #37393b;
-  }
-
-  .buttonGenerateBadge:hover, .buttonGenerateBadge:active {
-    background-color: #555;
-    border-color: #555;
-  }
-
-  .toast {
-    background-color: #242526;
-    color: #eee;
-  }
-
-  .toast code {
-    font-weight: bold;
-    color: #85d996;
   }
 }
 

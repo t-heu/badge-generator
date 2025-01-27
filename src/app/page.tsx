@@ -1,11 +1,11 @@
 "use client";
 import { useState, useEffect } from "react";
+import { AiOutlineMoon, AiOutlineSun } from "react-icons/ai";
 import Image from "next/image";
 
 import popularBadges from "./popularBadges.json";
+import dataTools from "./data.json";
 import styles from "./page.module.css";
-
-const routePath = process.env.NODE_ENV === "development" ? '/' : '/badge-generator/';
 
 export default function Home() {
   const [inputValue, setInputValue] = useState("");
@@ -45,15 +45,11 @@ export default function Home() {
     const formattedTool = inputValue.trim().toLowerCase();
   
     try {
-      const [data, dataCustom] = await Promise.all([
-        fetch("https://cdn.jsdelivr.net/npm/simple-icons@latest/_data/simple-icons.json").then(res => res.json()),
-        fetch(`${routePath}dataCustom.json`).then(res => res.json())
-      ]);
+      const data = dataTools;
   
-      const mergedArray = [...data, ...dataCustom];
-      const icon = mergedArray.find((item: any) =>
+      const icon = data.find((item: any) =>
         item.title.toLowerCase() === formattedTool ||
-        item.aliases?.aka?.some((alias: any) => alias.toLowerCase() === formattedTool)
+        item.aliases?.some((alias: any) => alias.toLowerCase() === formattedTool)
       );
   
       const color = icon?.hex || "000000";
@@ -93,7 +89,7 @@ export default function Home() {
         onClick={toggleDarkMode}
         className={styles.theme_toggle_btn}
       >
-        {isDarkMode ? '☼' : '☾'}
+        {isDarkMode ? <AiOutlineSun /> : <AiOutlineMoon />}
       </button>
 
       <h1>Badge Maker for README 🏆🏅</h1>
