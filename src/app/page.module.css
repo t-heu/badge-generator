@@ -22,13 +22,14 @@
 .buttonGenerateBadge {
   margin-bottom: 1em;
   padding: 10px 20px;
+  border-radius: 4px;
   background-color: #1a1a1a;
   color: #eee;
   cursor: pointer;
   border: solid 1px #1a1a1a;
 }
 
-.buttonGenerateBadge:hover {
+.buttonGenerateBadge:hover, .buttonGenerateBadge:active {
   background-color: #444;
   border-color: #444;
 }
@@ -41,16 +42,12 @@
   align-items: center;
 }
 
-.badgeContent .imgBadge {
-  margin-bottom: 1em;
-  max-height: 30px;
-}
-
 .badgeContent button svg:hover {
   fill: #777;
 }
 
 .copy {
+  margin-top: 1em;
   background-color: #242526;
   padding: 1em;
   border-radius: 4px;
@@ -82,7 +79,7 @@
   font-size: 16px;
   color: #333;
   background-color: #eee;
-  border-left: 5px solid #3178C6;
+  border-left: 5px solid #85d996;
   padding: 15px;
   margin: 20px 0;
   font-family: 'Arial', sans-serif;
@@ -92,7 +89,7 @@
 
 .toast code {
   font-weight: bold;
-  color: #3178C6;
+  color: #1a1a1a;
 }
 
 .badgesPopular {
@@ -115,6 +112,45 @@
   object-fit: contain; /* Isso mantém a imagem proporcional sem distorcer */
   width: 100%; /* Garantir que a imagem ocupe todo o espaço disponível */
   height: 100%; /* Garantir que a altura da imagem também seja proporcional */
+  max-height: 30px;
+}
+
+.theme_toggle_btn {
+  position: absolute;
+  left: 10px;
+  top: 90px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #eee, #d6d6d6);
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1), -3px -3px 8px rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease-in-out;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.theme_toggle_btn:hover {
+  background: linear-gradient(135deg, #e0e0e0, #c4c4c4);
+  box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.15), -5px -5px 12px rgba(255, 255, 255, 0.9);
+}
+
+.theme_toggle_btn:active {
+  transform: scale(0.95);
+}
+
+.dark-mode .theme_toggle_btn {
+  background: linear-gradient(135deg, #333, #555);
+  color: #fff;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5), -3px -3px 8px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .theme_toggle_btn:hover {
+  background: linear-gradient(135deg, #222, #444);
 }
 
 @media screen and (max-width: 1500px) {
@@ -149,8 +185,46 @@
     border-color: #37393b;
   }
 
+  .buttonGenerateBadge:hover, .buttonGenerateBadge:active {
+    background-color: #555;
+    border-color: #555;
+  }
+
   .toast {
-    background-color: #37393b;
+    background-color: #242526;
     color: #eee;
   }
+
+  .toast code {
+    font-weight: bold;
+    color: #85d996;
+  }
+}
+
+[data-theme="dark"] .main {
+  --gray-rgb: 255, 255, 255;
+  --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
+  --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
+  --button-primary-hover: #ccc;
+  --button-secondary-hover: #1a1a1a;
+}
+
+[data-theme="dark"] .buttonGenerateBadge {
+  background-color: #37393b;
+  border-color: #37393b;
+}
+
+[data-theme="dark"] .buttonGenerateBadge:hover, .buttonGenerateBadge:active {
+  background-color: #555;
+  border-color: #555;
+}
+
+[data-theme="dark"] .toast {
+  background-color: #242526;
+  color: #eee;
+}
+
+[data-theme="dark"] .toast code {
+  font-weight: bold;
+  color: #85d996;
 }

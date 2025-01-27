@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 import popularBadges from "./popularBadges.json";
@@ -8,16 +8,41 @@ import styles from "./page.module.css";
 const routePath = process.env.NODE_ENV === "development" ? '/' : '/badge-generator/';
 
 export default function Home() {
-  const [tool, setTool] = useState("");
   const [inputValue, setInputValue] = useState("");
   const [badgeUrl, setBadgeUrl] = useState("");
   const [copied, setCopied] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // Detectar o tema do sistema operacional ou o armazenado no localStorage
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    
+    if (savedTheme) {
+      setIsDarkMode(savedTheme === 'dark');
+    } else {
+      const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setIsDarkMode(prefersDarkMode);
+    }
+  }, []);
+
+  // Aplicar o tema no atributo HTML e salvar a preferência
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDarkMode]);
+
+  // Função para alternar manualmente o tema
+  const toggleDarkMode = () => setIsDarkMode(prevMode => !prevMode);
 
   const generateBadge = async () => {
     if (!inputValue) return;
   
     const formattedTool = inputValue.trim().toLowerCase();
-    setTool(formattedTool);
   
     try {
       const [data, dataCustom] = await Promise.all([
@@ -36,7 +61,7 @@ export default function Home() {
       const logo = icon?.logo || title.replace(/\s+/g, "-").toLowerCase();
       const fill = icon?.fill ? icon.fill : 'white';
   
-      setBadgeUrl(`https://img.shields.io/badge/${title.replace(/\s+/g, "%20")}-${color}?style=for-the-badge&logo=${logo}&logoColor=${fill}`);
+      setBadgeUrl(`![${formattedTool}](https://img.shields.io/badge/${title.replace(/\s+/g, "%20")}-${color}?style=for-the-badge&logo=${logo}&logoColor=${fill})`);
     } catch (error) {
       console.error(error);
     }
@@ -50,8 +75,27 @@ export default function Home() {
     if (activeAlert) alert('Copied')
   };
 
+  // Função para copiar o código para a área de transferência
+  const cleanURL = (link: string,) => {
+    const regex = /!\[.*?\]\((.*?)\)/;
+    const match = link.match(regex);
+
+    if (match) {
+      return String(match[1])
+    } else {
+      return '![404](https://img.shields.io/badge/404-000000?style=for-the-badge&logo=404&logoColor=white)'
+    }
+  };
+
   return (
     <main className={styles.main}>
+      <button
+        onClick={toggleDarkMode}
+        className={styles.theme_toggle_btn}
+      >
+        {isDarkMode ? '☼' : '☾'}
+      </button>
+
       <h1>Badge Maker for README 🏆🏅</h1>
 
       <input
@@ -68,7 +112,7 @@ export default function Home() {
       {badgeUrl && (
         <div className={styles.badgeContent}>
           <Image 
-            src={badgeUrl} 
+            src={cleanURL(badgeUrl)} 
             alt="Badge" 
             height={120}
             width={120}
@@ -76,8 +120,8 @@ export default function Home() {
           />
           
           <div className={styles.copy}>
-            <code>![{tool}]({badgeUrl})</code>
-            <button onClick={() => copyToClipboard(`![${tool}](${badgeUrl})`)} title="copy code">
+            <code>{badgeUrl}</code>
+            <button onClick={() => copyToClipboard(badgeUrl)} title="copy code">
               {copied ? "Copied" : "Copy"}
             </button> 
           </div>

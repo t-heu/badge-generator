@@ -2,10 +2,10 @@
 Simple tool to generate custom badges in HTML5. Just search, copy and paste the code directly into your README.
 
 # 🌐 Socials
-[![x](https://img.shields.io/badge/x-000000?style=for-the-badge&logo=x&logoColor=white)](https://twitter.com/t_h_e_u) [![github](https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white)](https://t-heu.github.io/) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=LinkedIn&logoColor=white)](https://www.linkedin.com/in/matheusgbatista/)
+[![x](https://img.shields.io/badge/x-000000?style=for-the-badge&logo=x&logoColor=white)](https://twitter.com/t_h_e_u) [![web](https://img.shields.io/badge/web-000000?style=for-the-badge&logo=web&logoColor=white)](https://t-heu.github.io/) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=LinkedIn&logoColor=white)](https://www.linkedin.com/in/matheusgbatista/)
 
 ## 🚀 Techs
-![next.js](https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=next.js&logoColor=white) ![githubpages](https://img.shields.io/badge/githubpages-000000?style=for-the-badge&logo=githubpages&logoColor=white) ![react](https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=white) ![git](https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white)
+![next.js](https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=next.js&logoColor=white) ![github pages](https://img.shields.io/badge/GitHub%20Pages-222222?style=for-the-badge&logo=github-pages&logoColor=white) ![react](https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=white) ![git](https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white) ![eslint](https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white)
 
 ## 🖼️ Preview
 ![alt text](docs/preview.png "Scree Home")
