@@ -23,7 +23,7 @@
     "fill": "61DAFB",
     "aliases": [
       "rn",
-      "React Native"
+      "ReactNative"
     ]
   },
   {
@@ -3450,7 +3450,10 @@
   {
     "title": "Create React App",
     "hex": "09D3AC",
-    "source": "https://github.com/facebook/create-react-app/blob/9d0369b1fe3260e620b08effcf85f1edefc5d1ea/docusaurus/website/static/img/logo.svg"
+    "source": "https://github.com/facebook/create-react-app/blob/9d0369b1fe3260e620b08effcf85f1edefc5d1ea/docusaurus/website/static/img/logo.svg",
+    "aliases": [
+      "cra"
+    ]
   },
   {
     "title": "Creative Commons",
@@ -3739,9 +3742,12 @@
     "source": "https://docs.datastax.com/en/astra/astra-db-vector"
   },
   {
-    "title": "date-fns",
+    "title": "date fns",
     "hex": "770C56",
-    "source": "https://date-fns.org"
+    "source": "https://date-fns.org",
+    "aliases": [
+      "date-fns"
+    ]
   },
   {
     "title": "DATEV",
@@ -13943,7 +13949,7 @@
     "source": "https://studio3t.com"
   },
   {
-    "title": "styled-components",
+    "title": "styled components",
     "hex": "DB7093",
     "source": "https://www.styled-components.com"
   },
@@ -14987,9 +14993,12 @@
     "source": "https://tryhackme.com"
   },
   {
-    "title": "ts-node",
+    "title": "ts node",
     "hex": "3178C6",
-    "source": "https://typestrong.org/ts-node"
+    "source": "https://typestrong.org/ts-node",
+    "aliases": [
+      "ts-node"
+    ]
   },
   {
     "title": "Tubi",
